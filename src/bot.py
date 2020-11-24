@@ -1,5 +1,6 @@
 import telebot
 import env
+from media import LINKS 
 
 bot = telebot.TeleBot(env.TOKEN)
 bot.remove_webhook()
@@ -11,8 +12,7 @@ def welcome(msg):
 
 @bot.message_handler(commands=['respire'])
 def breathe(msg):
-    img = open('./assets/breath.gif', 'rb')
-    bot.send_document(msg.chat.id, img)
+    bot.send_document(msg.chat.id, LINKS["gifs"][0])
 
 
 if __name__ == '__main__':
