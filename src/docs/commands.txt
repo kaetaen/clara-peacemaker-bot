@@ -1,3 +1,4 @@
 Este são os comandos que devem ser inseridos na seção commands do BotFather para que o bot funcione adequadamente.
 
-/respire - a respiração adequada diminui a ansiedade
+respire - a respiração adequada diminui a ansiedade
+escute - tranquilidade através de melodia
