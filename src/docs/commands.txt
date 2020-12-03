@@ -2,3 +2,6 @@ Este são os comandos que devem ser inseridos na seção commands do BotFather p
 
 respire - a respiração adequada diminui a ansiedade
 escute - tranquilidade através de melodia
+contemple - admire imagens que remetam a paz
+
+
