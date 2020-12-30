@@ -1,5 +1,6 @@
 import telebot
 import env
+from positive_vibes_api import Quotes
 
 bot = telebot.TeleBot(env.TOKEN)
 bot.remove_webhook()
@@ -16,7 +17,9 @@ def breathe(msg):
 
 @bot.message_handler(commands=['reflita'])
 def think(msg):
-    pass
+    quote = Quotes().randomQuote()
+    bot.send_message(msg.chat.id, quote)
+    
 
 @bot.message_handler(commands=['escute'])
 def listen(msg):
