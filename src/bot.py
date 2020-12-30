@@ -11,8 +11,12 @@ def welcome(msg):
 
 @bot.message_handler(commands=['respire'])
 def breathe(msg):
-    bot.send_message(msg.chat.id, 'Olá mundo')
+    bot.send_document(msg.chat.id, 'https://media.giphy.com/media/1xVc4s9oZrDhO9BOYt/source.gif')
 
+
+@bot.message_handler(commands=['reflita'])
+def think(msg):
+    pass
 
 @bot.message_handler(commands=['escute'])
 def listen(msg):
