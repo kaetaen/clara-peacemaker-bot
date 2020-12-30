@@ -1,7 +1,5 @@
 import telebot
 import env
-from media import LINKS
-from utils.randomize import get_random_file
 
 bot = telebot.TeleBot(env.TOKEN)
 bot.remove_webhook()
@@ -13,18 +11,17 @@ def welcome(msg):
 
 @bot.message_handler(commands=['respire'])
 def breathe(msg):
-    bot.send_document(msg.chat.id, LINKS["gifs"][0])
+    bot.send_message(msg.chat.id, 'Olá mundo')
 
 
 @bot.message_handler(commands=['escute'])
 def listen(msg):
-    bot.send_audio(msg.chat.id, get_random_file('audios', LINKS))
+    pass
 
 
 @bot.message_handler(commands=['contemple'])
 def enjoy(msg):
-    bot.send_document(msg.chat.id, get_random_file('images', LINKS))
-
+    pass
 
 if __name__ == '__main__':
     bot.polling()
