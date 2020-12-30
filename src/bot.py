@@ -1,6 +1,6 @@
 import telebot
 import env
-from positive_vibes_api import Quotes
+from positive_vibes_api import Quotes, Music
 
 bot = telebot.TeleBot(env.TOKEN)
 bot.remove_webhook()
@@ -23,12 +23,14 @@ def think(msg):
 
 @bot.message_handler(commands=['escute'])
 def listen(msg):
-    pass
+    music = Music().randomMusic()
+    bot.send_document(msg.chat.id, music)
 
 
 @bot.message_handler(commands=['contemple'])
 def enjoy(msg):
-    pass
+    ...
+    
 
 if __name__ == '__main__':
     bot.polling()
