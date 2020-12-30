@@ -1,7 +1,5 @@
-from typing import Any
 import requests
 import json
-from requests.models import Response
 
 class Requester:
     def __init__(self):
@@ -9,12 +7,14 @@ class Requester:
 
     def request(self, path: str):
         url = self.base_url + path
-        data = requests.get(url).content
-        content = json.loads(data)
 
         if 'quotes' in url:
-            return content
-        else:
+            data = requests.get(url).content
+            content = json.loads(data)
+            
+            return content['msg']
+        
+        if 'songs' in url:
             return url
 
 
@@ -23,11 +23,10 @@ class Quotes(Requester):
         quote = self.request('/quotes/random')
         return quote
 
-
+ 
 class Music(Requester):
     def randomMusic(self):
         music = self.request('/songs/random')
-
         return music
 
 

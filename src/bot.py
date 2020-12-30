@@ -24,7 +24,7 @@ def think(msg):
 @bot.message_handler(commands=['escute'])
 def listen(msg):
     music = Music().randomMusic()
-    bot.send_document(msg.chat.id, music)
+    bot.send_audio(msg.chat.id, music)
 
 
 @bot.message_handler(commands=['contemple'])
