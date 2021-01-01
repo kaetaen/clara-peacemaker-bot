@@ -1,6 +1,6 @@
 import telebot
 import env
-from positive_vibes_api import Quotes, Music
+from positive_vibes_api import PositiveVibesAPI as Media
 
 bot = telebot.TeleBot(env.TOKEN)
 bot.remove_webhook()
@@ -17,20 +17,23 @@ def breathe(msg):
 
 @bot.message_handler(commands=['reflita'])
 def think(msg):
-    quote = Quotes().randomQuote()
+    quote = Media().get_quote()
     bot.send_message(msg.chat.id, quote)
     
 
 @bot.message_handler(commands=['escute'])
 def listen(msg):
-    music = Music().randomMusic()
-    bot.send_audio(msg.chat.id, music)
+    music = Media().get_music()
+    msg_title = f'🎵 Canção: {music["song_name"]} \n👨 Artista: {music["artist_name"]}'
+    bot.send_document(msg.chat.id, music["file"], caption=msg_title)
 
 
 @bot.message_handler(commands=['contemple'])
 def enjoy(msg):
-    ...
-    
+    image = Media().get_image()
+    quote = Media().get_quote()
+    bot.send_photo(msg.chat.id, image, caption=quote)
+
 
 if __name__ == '__main__':
     bot.polling()

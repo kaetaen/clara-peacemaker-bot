@@ -1,34 +1,35 @@
 import requests
 import json
 
-class Requester:
+class PositiveVibesAPI:
     def __init__(self):
         self.base_url = 'https://positive-vibes-api.herokuapp.com'
-
+    
     def request(self, path: str):
         url = self.base_url + path
-
-        if 'quotes' in url:
-            data = requests.get(url).content
-            content = json.loads(data)
+        data = requests.get(url).content
+        content = json.loads(data)
             
-            return content['msg']
-        
-        if 'songs' in url:
-            return url
+        return content['data']
 
+    def get_music(self):
+        music = self.request('/songs/random')
+        data_music = {
+            "artist_name": music["artist_name"],
+            "song_name": music["name"],
+            "file": music["audiodownload"]
+        }
 
-class Quotes(Requester):
-    def randomQuote(self):
+        return data_music
+
+    def get_quote(self):
         quote = self.request('/quotes/random')
+        
         return quote
 
- 
-class Music(Requester):
-    def randomMusic(self):
-        music = self.request('/songs/random')
-        return music
+    def get_image(self):
+        image = self.request('/images/random')
+
+        return image
 
 
-class Images(Requester):
-    ...
