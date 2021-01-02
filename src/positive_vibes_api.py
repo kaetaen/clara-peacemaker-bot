@@ -32,4 +32,9 @@ class PositiveVibesAPI:
 
         return image
 
+    def get_podcast(self):
+        episode = self.request('/podcasts/random')
+        
+        return episode
+
 
