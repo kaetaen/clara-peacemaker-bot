@@ -1,4 +1,4 @@
-ABOUT = '''bot.send_message(msg.chat.id, 'Olá  sou a Clara, posso te ajudar nos momentos de crise de ansiedade.
+ABOUT = '''Olá  sou a Clara, posso te ajudar nos momentos de crise de ansiedade.
 Para saber mais sobre o conteúdo disponibilizado acesse: positive-vibes-api.herokuapp.com/')
 '''
 
