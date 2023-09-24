@@ -7,8 +7,8 @@ from flask import Flask, request
 # Why 'Media'? Is short. Low code XD.
 
 bot = telebot.TeleBot(os.environ["TOKEN"], threaded=False)
-bot.remove_webhook()
-bot.set_webhook(url='https://clarapeacemakerbot.onrender.com')
+#bot.remove_webhook()
+bot.set_webhook()
 
 @bot.message_handler(commands=['start', 'sobre'])
 def welcome(msg):
