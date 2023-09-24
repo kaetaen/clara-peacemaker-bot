@@ -8,6 +8,7 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.8"
 pyTelegramBotAPI = "^3.7.4"
+Flask = "2.2.2"
 
 [tool.poetry.dev-dependencies]
 jedi = "^0.17.2"

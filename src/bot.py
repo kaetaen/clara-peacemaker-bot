@@ -2,10 +2,13 @@ import telebot
 from positive_vibes_api import PositiveVibesAPI as Media
 import messages
 import os
+from flask import Flask, request
+
 # Why 'Media'? Is short. Low code XD.
 
 bot = telebot.TeleBot(os.environ["TOKEN"], threaded=False)
 bot.remove_webhook()
+bot.set_webhook(url='https://clarapeacemakerbot.onrender.com')
 
 @bot.message_handler(commands=['start', 'sobre'])
 def welcome(msg):
@@ -44,6 +47,15 @@ def talk(msg):
        disable_web_page_preview=True
    )
 
+
+app = Flask(__name__)
+
+@app.route('/', methods=["POST"])
+def webhook():
+    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    return "!", 200
+
+
 if __name__ == '__main__':
-    bot.infinity_polling()
+    bot.polling()
 
