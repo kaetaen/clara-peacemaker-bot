@@ -4,11 +4,21 @@ import messages
 import os
 from flask import Flask, request
 
-# Why 'Media'? Is short. Low code XD.
+SECRET = 'dkejwejao28888udsadya'
+url = 'https://kaetaen.pythonanywhere.com/' + SECRET
 
-bot = telebot.TeleBot(os.environ["TOKEN"], threaded=False)
-#bot.remove_webhook()
-bot.set_webhook()
+bot = telebot.TeleBot("6446946135:AAFUNqmJGto0OXcKyHbPWJP-x4ygJciBs9w", threaded=False)
+bot.remove_webhook()
+bot.set_webhook(url=url)
+
+app = Flask(__name__)
+
+@app.route('/' + SECRET, methods=['POST'])
+def webhook():
+    update = telebot.types.Update.de_json(request.stream.read().decode('utf-8'))
+    bot.process_new_updates([update])
+    return 'ok', 200
+
 
 @bot.message_handler(commands=['start', 'sobre'])
 def welcome(msg):
@@ -57,5 +67,5 @@ def webhook():
 
 
 if __name__ == '__main__':
-    bot.polling()
+    bot.infinity_polling()
 
