@@ -4,8 +4,8 @@ import messages
 import os
 from flask import Flask, request
 
-SECRET = 'dkejwejao28888udsadya'
-url = 'https://kaetaen.pythonanywhere.com/' + SECRET
+#SECRET = 'dkejwejao28888udsadya'
+url = 'https://clarapeacemakerbot.onrender.com'
 
 bot = telebot.TeleBot("6446946135:AAFUNqmJGto0OXcKyHbPWJP-x4ygJciBs9w", threaded=False)
 bot.remove_webhook()
