@@ -67,5 +67,8 @@ def webhook():
 
 
 if __name__ == '__main__':
-    bot.polling()
+    try:
+        bot.polling()
+    except:
+        print("erro")
 
