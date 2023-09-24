@@ -4,7 +4,7 @@ from positive_vibes_api import PositiveVibesAPI as Media
 import messages
 # Why 'Media'? Is short. Low code XD.
 
-bot = telebot.TeleBot(env.TOKEN)
+bot = telebot.TeleBot(env.TOKEN, threaded=False)
 bot.remove_webhook()
 
 @bot.message_handler(commands=['start', 'sobre'])
@@ -26,7 +26,7 @@ def think(msg):
 @bot.message_handler(commands=['escute'])
 def listen(msg):
     music = Media().get_music()
-    bot.send_document(msg.chat.id, music["file"], caption=messages.SONG_TAG(music))
+    bot.send_audio(msg.chat.id, music["file"], caption=messages.SONG_TAG(music))
 
 
 @bot.message_handler(commands=['contemple'])
@@ -45,5 +45,5 @@ def talk(msg):
    )
 
 if __name__ == '__main__':
-    bot.polling()
+    bot.infinity_polling()
 

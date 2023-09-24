@@ -1,5 +1,4 @@
 ABOUT = '''Olá  sou a Clara, posso te ajudar nos momentos de crise de ansiedade.
-Para saber mais sobre o conteúdo disponibilizado acesse: positive-vibes-api.herokuapp.com/')
 '''
 
 

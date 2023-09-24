@@ -3,7 +3,7 @@ import json
 
 class PositiveVibesAPI:
     def __init__(self):
-        self.base_url = 'https://positive-vibes-api.herokuapp.com'
+        self.base_url = 'https://positive-vibes-6xte.onrender.com'
     
     def request(self, path: str):
         url = self.base_url + path
@@ -17,8 +17,8 @@ class PositiveVibesAPI:
         data_music = {
             "artist_name": music["artist_name"],
             "song_name": music["name"],
-            "file": music["audiodownload"]
-        }
+            "file": music["audio"]
+        }   
 
         return data_music
 
