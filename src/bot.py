@@ -70,5 +70,5 @@ if __name__ == '__main__':
     try:
         bot.polling()
     except:
-        print("erro")
+        bot.set_webhook()
 
