@@ -13,7 +13,7 @@ bot.set_webhook(url=url)
 
 app = Flask(__name__)
 
-@app.route('/' + SECRET, methods=['POST'])
+@app.route('/foo', methods=['POST'])
 def webhook():
     update = telebot.types.Update.de_json(request.stream.read().decode('utf-8'))
     bot.process_new_updates([update])
