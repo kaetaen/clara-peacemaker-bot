@@ -1,10 +1,10 @@
 import telebot
-import env
 from positive_vibes_api import PositiveVibesAPI as Media
 import messages
+import os
 # Why 'Media'? Is short. Low code XD.
 
-bot = telebot.TeleBot(env.TOKEN, threaded=False)
+bot = telebot.TeleBot(os.environ["TOKEN"], threaded=False)
 bot.remove_webhook()
 
 @bot.message_handler(commands=['start', 'sobre'])
